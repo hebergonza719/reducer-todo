@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, { useState, useReducer } from 'react';
 import './App.css';
 import { initialState, todoReducer } from './reducers';
 import TodoList from './components/TodoList';
@@ -11,10 +11,17 @@ function App() {
   const addNewTodo = (newItem) => {
     dispatch({ type: "ADD_TODO_ITEM", payload: newItem });
   };
+
+  const toggleCompleted = id => {
+    dispatch({ type: "TOGGLE_COMPLETED", payload: id })
+  };
   
   return (
-    <div className="App">
-      <TodoList todos={state.todoList} />
+    <div>
+      <TodoList 
+        todos={state.todoList} 
+        toggleCompleted={toggleCompleted}   
+      />
       <TodoForm addNewTodo={addNewTodo} />
     </div>
   );
