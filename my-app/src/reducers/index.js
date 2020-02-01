@@ -8,22 +8,6 @@ export const initialState = {
   ]
 }
 
-// const newState = {
-    //   ...this.state,
-    //   todoList: this.state.todoList.map(item => {
-    //     // if item meets condition, change completed status
-    //     if (item.id === id) {
-    //       return {
-    //         ...item,
-    //         completed: !item.completed
-    //       };
-    //     }
-    //     // return others unchanged
-    //     return item;
-    //   })
-    // };
-    // this.setState(newState);
-
 export const todoReducer = (state, action) => {
   console.log("index.js: todoReducer: state:", state);
   switch(action.type) {
@@ -46,6 +30,13 @@ export const todoReducer = (state, action) => {
             };
           }
           return item;
+        })
+      };
+    case "CLEAR_COMPLETED":
+      return {
+        ...state,
+        todoList: state.todoList.filter(item => {
+          return !item.completed;
         })
       };
     default:

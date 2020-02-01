@@ -1,6 +1,6 @@
 import React, { useState } from  'react';
 
-const TodoForm = ({ addNewTodo }) => {
+const TodoForm = ({ addNewTodo, clearCompleted }) => {
 
   const [newItem, setNewItem] = useState("");
   console.log("newItem", newItem);
@@ -30,7 +30,7 @@ const TodoForm = ({ addNewTodo }) => {
         <button>Add To-do</button>
       </form>
       {/* <button onClick={this.props.clearTodo}>Clear Completed</button> */}
-      <button>Clear Completed</button>
+      <button onClick={clearCompleted}>Clear Completed</button>
     </div>
   )
 }
