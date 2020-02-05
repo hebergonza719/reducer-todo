@@ -20,7 +20,6 @@ const TodoForm = ({ addNewTodo, clearCompleted }) => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="newTodo"> Add New To-do
           <input
-            // this.handleSubmit --> this makes ref to class TodoForm
             onChange={handleChanges}
             type="text"
             name="newTodo"
@@ -29,7 +28,6 @@ const TodoForm = ({ addNewTodo, clearCompleted }) => {
         </label>
         <button>Add To-do</button>
       </form>
-      {/* <button onClick={this.props.clearTodo}>Clear Completed</button> */}
       <button onClick={clearCompleted}>Clear Completed</button>
     </div>
   )
